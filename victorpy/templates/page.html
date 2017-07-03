@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ longest_title }}{% endblock title %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-8 col-lg-8">
+
+            <h1>{{ title }}</h1>
+
+            {{ content }}
+        </div>
+
+        <div class="col-md-4 col-lg-4">
+
+            <h3>Site tags</h3>
+            <ul>
+                {% for tag, tag_data in site.tags.items() %}
+                    <li>
+                        <a href="{{ tag_data.url }}">{{ tag }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+{% endblock main %}

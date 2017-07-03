@@ -1,0 +1,1 @@
+VictorPy is a **simple yet powerful static site generator**.

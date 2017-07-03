@@ -1,0 +1,11 @@
+base_url: "http://www.github.com"
+title: "VictorPy"
+theme: cosmo
+email: pascal.lando@free.fr
+
+prog_name: VictorPy 0.1
+
+# debug: true
+
+routes:
+  'survey.html': "/survey"

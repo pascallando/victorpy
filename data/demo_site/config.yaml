@@ -1,0 +1,9 @@
+# Site global parameters:
+base_url: "http://www.pyssmsite.fr/"
+title: Test site
+theme: darkly
+
+amazon_id: 12345
+
+routes:
+    tags.html: /my-tags

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Survey{% endblock %}
+
+{% block before_endbody %}
+<script src="https://surveyjs.azureedge.net/0.12.18/survey.jquery.js"></script>
+
+<script>
+    Survey.Survey.cssType = "bootstrap";
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-green";
+
+    window.survey = new Survey.Model({ questions: [
+        { type: "radiogroup", name: "car", title: "What car are you driving?", isRequired: true,
+         colCount: 4, choices: ["None", "Ford", "Vauxhall", "Volkswagen", "Nissan", "Audi", "Mercedes-Benz", "BMW", "Peugeot", "Toyota", "Citroen"] }
+    ]});
+    survey.onComplete.add(function(result) {
+        document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+    });
+
+
+    $("#surveyElement").Survey({model:survey});
+</script>
+{% endblock before_endbody %}
+
+
+{% block main %}
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+{% endblock main %}
