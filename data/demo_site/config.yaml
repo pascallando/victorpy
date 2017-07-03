@@ -1,5 +1,5 @@
 # Site global parameters:
-base_url: "http://www.pyssmsite.fr/"
+base_url: "http://www.victorpy-demosite.com"
 title: Test site
 theme: darkly
 

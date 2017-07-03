@@ -35,6 +35,7 @@ base_url: "http://mysite.com"
 
 | Name                 | Type    | Default                         | Notes                                                                                     |
 |:---------------------|:--------|:--------------------------------|:------------------------------------------------------------------------------------------|
+| `actions_dir_name`   | String  | "actions"                       | The directory containing custom actions to trigger via [hooks](/build-process/hooks/).                              |
 | `amazon_id`          | String  | None                            | If defined, used by the [amazon shortcode](/templates/shortcodes/#amazon).                |
 | `base_url`           | String  | ""                              |                                                                                           |
 | `build_dir_name`     | String  | "public"                        | The directory where generated files should be written                                     |

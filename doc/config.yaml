@@ -1,8 +1,15 @@
-base_url: "http://www.github.com"
+base_url: "https://pascallando.github.io"
 title: "VictorPy"
 theme: cosmo
+email: pascal.lando@u-picardie.fr
 
 routes:
-  'survey.html': "/survey"
+    'survey.html': "/survey"
 
-prog_name: VictorPy 0.1
+build_dir_name: pascallando.github.io
+
+hooks:
+    'after_build':
+        - 'deploy_github'
+
+prog_name: VictorPy 0.1.1

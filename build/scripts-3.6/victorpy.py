@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-from __init__ import __version__
+#!/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 from enum import Enum
 from collections import OrderedDict
 from operator import itemgetter
@@ -563,7 +562,11 @@ class Site(object):
 
 if __name__ == "__main__":
 
-    logging.info("VictorPy " + __version__)
+    logging.info("VictorPy v0.1.1")
+
+    from __init__ import __version__
+
+    print(__version__)
 
     parser = argparse.ArgumentParser(description="A simple yet powerful static site generator")
     parser.add_argument('serve', nargs='?', default=None, help="Launch live server on local directory")
