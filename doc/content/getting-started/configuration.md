@@ -8,7 +8,7 @@ tags:
     - Yaml
 ---
 
-Bootstraping a {% prog_name %} site is very easy:
+Bootstrapping a {% prog_name %} site is very easy:
 
 1. Create a directory for your site.
 2. Create a `config.yaml` file in it.
@@ -29,7 +29,7 @@ title: "My site"
 base_url: "http://mysite.com"
 ```
 
-### Available parameters
+### Parameters
 
 {% prog_name %} uses a bunch of default parameters to build your site:
 
@@ -52,7 +52,7 @@ base_url: "http://mysite.com"
 | `title`              | String  | ""                              |                                                                                           |
 
 
-### Custom parameters
+### Additional parameters
 
 In addition, you can provide extra parameters.
 

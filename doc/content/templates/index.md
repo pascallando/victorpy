@@ -1,6 +1,5 @@
 ---
 title: Templates
-description: DESCRIPTION
 position: 300
 ---
 

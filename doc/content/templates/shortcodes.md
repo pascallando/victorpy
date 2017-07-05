@@ -1,6 +1,6 @@
 ---
 title: Shortcodes
-description: Shorcodes allow you to extend your markdown vocabulary.
+description: Shortcodes allow you to extend your markdown vocabulary.
 position: 400
 tags:
     - advanced
@@ -23,7 +23,7 @@ You can include shortcodes in your content using the following syntax:
 
 ## Built-in shortcodes
 
-{% prog_name %} ships with a set of predefined shorcodes:
+{% prog_name %} ships with a set of predefined shortcodes:
 
 ### sectionpages
 
@@ -186,10 +186,3 @@ Here is the result:
 {% alert type="info" %}
 The factorial of number 4 is {% factorial 4 %}.
 {% endalert %}
-
-
-
-
-
-
-

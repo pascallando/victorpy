@@ -32,7 +32,7 @@ Every routes associates an URL pattern to a template.
 
 ### Custom route example
 
-Let's say you wan't to create a survey form for your site.
+Let's say you want to create a survey form for your site.
 
 You want this survey to be accessible from the `/survey/` URL.
 

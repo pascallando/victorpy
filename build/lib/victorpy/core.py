@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from victorpy.__init__ import __version__
 from enum import Enum
 from collections import OrderedDict
 from operator import itemgetter
@@ -297,7 +296,6 @@ class Site(object):
         self.context = {}
         self.build_date = datetime.utcnow()
         self.render_id = None
-        self.engine = __version__
 
         self.script_working_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -560,7 +558,7 @@ class Site(object):
 
 def main():
 
-    logging.info("VictorPy " + __version__)
+    logging.info("VictorPy")
 
     parser = argparse.ArgumentParser(description="A simple yet powerful static site generator")
     parser.add_argument('serve', nargs='?', default=None, help="Launch live server on local directory")

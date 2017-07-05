@@ -20,7 +20,7 @@ Hooks are a way to plug extra features (called **actions**) to {% prog_name %} a
 Configuring hook is generally two steps process:
 
 1. Linking an action to a hook (i.e. _when_ to do _what_…).
-2. Cufiguring each action.
+2. Configuring each action.
 
 For example, if you want to transpile your Less files to CSS each time your site has been rendered, you will have to say that you want to trigger the Less to CSS transpiling process after rendering **and** to tell {% prog_name %} where your Less source files are located andwhere you want to create the CSS files.
 
@@ -123,4 +123,4 @@ hooks:
 
 ## User-defined hooks
 
-Todo.
+To be documented.

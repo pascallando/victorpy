@@ -1,5 +1,5 @@
 .DS_Store
 __pycache__
 pascallando.github.io
-build
-dist
+MANIFEST
+*.egg-info

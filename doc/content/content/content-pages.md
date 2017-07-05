@@ -20,7 +20,7 @@ Every page has two parts:
 
 ### Front matter
 
-Your pages should begin with a **front matter header**, containing metadata in [YAML](http://yaml.org/) format, surrounded by `---`.
+Your pages should begin with a **front matter header**, containing meta-data in [YAML](http://yaml.org/) format, surrounded by `---`.
 
 ```
 ---
@@ -52,6 +52,6 @@ Page content should be written in [Markdown](https://daringfireball.net/projects
 | `keywords`    | List    | None        | Typically used for HTML `<meta name="keywords">`.                                |
 | `template`    | String  | "page.html" | The [template](/templates/) {% prog_name %} should use to render the page.       |
 | `tags`        | String  | []          | A list of tags, used to generate the site tags index.                            |
-| `draft`       | Boolean | False       | If True, the page will be skiped when generating the site.                       |
+| `draft`       | Boolean | False       | If True, the page will be skipped when generating the site.                      |
 | `position`    | Number  | 0           | The position of the page in it's section menu.                                   |
 | `date`        | Date    | None        |                                                                                  |

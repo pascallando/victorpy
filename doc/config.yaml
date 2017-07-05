@@ -12,4 +12,3 @@ hooks:
     'after_build':
         - 'deploy_github'
 
-prog_name: VictorPy 0.1.1

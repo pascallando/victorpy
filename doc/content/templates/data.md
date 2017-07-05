@@ -82,10 +82,11 @@ In addition to page data, you can access site wide data in every template.
 
 | Name                 | Type          | Notes                                                                        |
 |:---------------------|:--------------|:-----------------------------------------------------------------------------|
-| `site.title`         | String        |                                                                              |
 | `site.baseUrl`       | String        |                                                                              |
+| `site.engine`        | String        | The version of the build engine.                                             |
 | `site.render_id`     | String        | A unique id, refreshed every time the site is rendered.                      |
 | `site.root_sections` | List[Section] | A list of all root sections of this site, i.e. sections which has no parent. |
+| `site.title`         | String        |                                                                              |
 
 
 Note: your can define other site constants in the [config file](/getting-started/configuration/) to make them available in every page.

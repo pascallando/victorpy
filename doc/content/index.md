@@ -5,7 +5,7 @@ description: This site is the reference manual for the Python static site genera
 
 {% prog_name %} is a **simple yet powerful static site generator**.
 
-It is inspired by Steve Francia's _[Hugo](https://gohugo.io/)_, with less talent but some pythonic sugar :)
+It is inspired by [Steve Francia](http://spf13.com/)'s _[Hugo](https://gohugo.io/)_, with less talent but some pythonic sugar :)
 
 Features:
 
