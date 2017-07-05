@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from __init__ import __version__
 from enum import Enum
 from collections import OrderedDict
 from operator import itemgetter
@@ -28,15 +27,6 @@ logging.addLevelName(logging.INFO, "\033[1;02m%s\033[1;0m" % logging.getLevelNam
 logging.addLevelName(logging.WARNING, "\033[1;31m%s\033[1;0m" % logging.getLevelName(logging.WARNING))
 logging.addLevelName(logging.ERROR, "\033[1;41m%s\033[1;0m" % logging.getLevelName(logging.ERROR))
 
-
-def load_module(path, module_name):
-    import importlib.util
-    spec = importlib.util.spec_from_file_location(module_name, path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    sys.modules[module_name] = module
-
-
 # ----------------------------
 import mistune
 from pygments import highlight
@@ -56,6 +46,12 @@ renderer = HighlightRenderer()
 markdown = mistune.Markdown(renderer=renderer, escape=False)
 # ----------------------------
 
+def load_module(path, module_name):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(module_name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    sys.modules[module_name] = module
 
 
 class PageType(Enum):
@@ -331,7 +327,7 @@ class Site(object):
         global default_shortcodes
         global user_shortcodes
 
-        import shortcodes as default_shortcodes
+        from victorpy import shortcodes as default_shortcodes
 
         try:
             load_module(path=os.path.join(self.base_dir, "shortcodes.py"), module_name="user_shortcodes")
@@ -373,7 +369,7 @@ class Site(object):
                 except Exception as e:
                     logging.error("Unable to execute hook {action}: {e}".format(action=action, e=e))
                 finally:
-                    os.chdir(site.base_dir)
+                    os.chdir(self.base_dir)
 
     def run_hooks_after_build(self):
         if 'after_build' in self.params['hooks']:
@@ -391,7 +387,7 @@ class Site(object):
                 except Exception as e:
                     logging.error("Unable to execute hook {action}: {e}".format(action=action, e=e))
                 finally:
-                    os.chdir(site.base_dir)
+                    os.chdir(self.base_dir)
 
     def load_files(self):
         base_content_path = os.path.join(self.base_dir, "content")
@@ -556,14 +552,9 @@ class Site(object):
         self.run_hooks_after_build()
 
 
+def main():
 
-
-
-
-
-if __name__ == "__main__":
-
-    logging.info("VictorPy " + __version__)
+    logging.info("VictorPy")
 
     parser = argparse.ArgumentParser(description="A simple yet powerful static site generator")
     parser.add_argument('serve', nargs='?', default=None, help="Launch live server on local directory")
@@ -574,7 +565,6 @@ if __name__ == "__main__":
         action = 'serve'
     else:
         action = sys.argv[1]
-
 
 
     if action == 'build':
@@ -649,3 +639,7 @@ if __name__ == "__main__":
                     if os.path.isfile(filename):
                         extra_files.append(filename)
         app.run(extra_files=extra_files, port=site.params['port'])
+
+
+if __name__ == "__main__":
+    main()

@@ -24,7 +24,7 @@ class TestPyssm(unittest.TestCase):
         self.expected = {
             '/': {
                 'url'                : "/",
-                'permalink'          : "http://www.pyssmsite.fr/",
+                'permalink'          : "http://www.victorpy-demosite.com/",
                 'slug'               : "index",
                 'section_url'        : None,
                 'direct_section_slug': None,
@@ -36,7 +36,7 @@ class TestPyssm(unittest.TestCase):
 
             '/root-page/': {
                 'url'                : "/root-page/",
-                'permalink'          : "http://www.pyssmsite.fr/root-page/",
+                'permalink'          : "http://www.victorpy-demosite.com/root-page/",
                 'slug'               : "root-page",
                 'section_url'        : None,
                 'direct_section_slug': None,
@@ -48,7 +48,7 @@ class TestPyssm(unittest.TestCase):
 
             '/animals/': {
                 'url'                : "/animals/",
-                'permalink'          : "http://www.pyssmsite.fr/animals/",
+                'permalink'          : "http://www.victorpy-demosite.com/animals/",
                 'slug'               : "index",
                 'section_url'        : "/animals/",
                 'direct_section_slug': "animals",
@@ -59,7 +59,7 @@ class TestPyssm(unittest.TestCase):
             },
             '/animals/cat/': {
                 'url'                : "/animals/cat/",
-                'permalink'          : "http://www.pyssmsite.fr/animals/cat/",
+                'permalink'          : "http://www.victorpy-demosite.com/animals/cat/",
                 'slug'               : "cat",
                 'section_url'        : "/animals/",
                 'direct_section_slug': "animals",
@@ -70,7 +70,7 @@ class TestPyssm(unittest.TestCase):
             },
             '/animals/dog/': {
                 'url'                : "/animals/dog/",
-                'permalink'          : "http://www.pyssmsite.fr/animals/dog/",
+                'permalink'          : "http://www.victorpy-demosite.com/animals/dog/",
                 'slug'               : "dog",
                 'section_url'        : "/animals/",
                 'direct_section_slug': "animals",
@@ -82,7 +82,7 @@ class TestPyssm(unittest.TestCase):
 
             '/food/': {
                 'url'                : "/food/",
-                'permalink'          : "http://www.pyssmsite.fr/food/",
+                'permalink'          : "http://www.victorpy-demosite.com/food/",
                 'slug'               : "index",
                 'section_url'        : "/food/",
                 'direct_section_slug': "food",
@@ -93,7 +93,7 @@ class TestPyssm(unittest.TestCase):
             },
             '/food/page-in-food/': {
                 'url'                : "/food/page-in-food/",
-                'permalink'          : "http://www.pyssmsite.fr/food/page-in-food/",
+                'permalink'          : "http://www.victorpy-demosite.com/food/page-in-food/",
                 'slug'               : "page-in-food",
                 'section_url'        : "/food/",
                 'direct_section_slug': "food",
@@ -104,7 +104,7 @@ class TestPyssm(unittest.TestCase):
             },
             '/food/fruits/': {
                 'url'                : "/food/fruits/",
-                'permalink'          : "http://www.pyssmsite.fr/food/fruits/",
+                'permalink'          : "http://www.victorpy-demosite.com/food/fruits/",
                 'slug'               : "index",
                 'section_url'        : "/food/fruits/",
                 'direct_section_slug': "fruits",
@@ -115,7 +115,7 @@ class TestPyssm(unittest.TestCase):
             },
             '/food/fruits/apple/': {
                 'url'                : "/food/fruits/apple/",
-                'permalink'          : "http://www.pyssmsite.fr/food/fruits/apple/",
+                'permalink'          : "http://www.victorpy-demosite.com/food/fruits/apple/",
                 'slug'               : "apple",
                 'section_url'        : "/food/fruits/",
                 'direct_section_slug': "fruits",
@@ -126,7 +126,7 @@ class TestPyssm(unittest.TestCase):
             },
             '/food/vegetables/': {
                 'url'                : "/food/vegetables/",
-                'permalink'          : "http://www.pyssmsite.fr/food/vegetables/",
+                'permalink'          : "http://www.victorpy-demosite.com/food/vegetables/",
                 'slug'               : "index",
                 'section_url'        : "/food/vegetables/",
                 'direct_section_slug': "vegetables",
@@ -143,7 +143,7 @@ class TestPyssm(unittest.TestCase):
 
     def test_load_config(self):
         self.site.load_config()
-        self.assertEqual(self.site.params['base_url'], "http://www.pyssmsite.fr/")
+        self.assertEqual(self.site.params['base_url'], "http://www.victorpy-demosite.com/")
         self.assertEqual(self.site.params['title'], "Test site")
 
     def test_load_files(self):
@@ -193,7 +193,7 @@ class TestPyssm(unittest.TestCase):
         self.assertEqual(page.relative_path, "animals/dog.md")
         self.assertEqual(page.slug, "dog")
         self.assertEqual(page.url, "/animals/dog")
-        self.assertEqual(page.permalink, "http://www.pyssmsite.fr/animals/dog")
+        self.assertEqual(page.permalink, "http://www.victorpy-demosite.com/animals/dog")
         self.assertEqual(page.section_url, "/animals")
         self.assertEqual(page.parent_section_url, "/")
         self.assertEqual(page.direct_section_slug, "animals")
@@ -207,21 +207,21 @@ class TestPyssm(unittest.TestCase):
         self.assertEqual(page_context['keywords'], ["cool", "love"])
         self.assertEqual(page_context['tags'], ["cool", "love"])
         self.assertEqual(page_context['section_sections'], [
-            {'permalink': "http://www.pyssmsite.fr/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
-            {'permalink': "http://www.pyssmsite.fr/food", 'url': "/food", 'title': "Food", 'description': None, 'position': 10},
+            {'permalink': "http://www.victorpy-demosite.com/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/food", 'url': "/food", 'title': "Food", 'description': None, 'position': 10},
         ])
         self.assertEqual(page_context['section_pages'], [
-            {'permalink': "http://www.pyssmsite.fr/animals/cat", 'url': "/animals/cat", 'title': "The cat", 'description': None, 'position': 0},
-            {'permalink': "http://www.pyssmsite.fr/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/animals/cat", 'url': "/animals/cat", 'title': "The cat", 'description': None, 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
         ])
         self.assertEqual(page_context['site']['root_sections'], [
-            {'permalink': "http://www.pyssmsite.fr/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
-            {'permalink': "http://www.pyssmsite.fr/food", 'url': "/food", 'title': "Food", 'description': None, 'position': 10}
+            {'permalink': "http://www.victorpy-demosite.com/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/food", 'url': "/food", 'title': "Food", 'description': None, 'position': 10}
         ])
         self.assertEqual(page_context['breadcrumb'], [
-            {'permalink': "http://www.pyssmsite.fr/", 'url': "/", 'title': "Home page", 'description': "Home page description", 'position': 0},
-            {'permalink': "http://www.pyssmsite.fr/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
-            {'permalink': "http://www.pyssmsite.fr/animals/dog", 'url': "/animals/dog", 'title': "The dog", 'description':None, 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/", 'url': "/", 'title': "Home page", 'description': "Home page description", 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/animals", 'url': "/animals", 'title': "Animals", 'description': "The animals page decription", 'position': 0},
+            {'permalink': "http://www.victorpy-demosite.com/animals/dog", 'url': "/animals/dog", 'title': "The dog", 'description':None, 'position': 0},
         ])
         self.assertListEqual(list(page_context['site']['tags'].keys()), ['cool', 'love'])
         self.assertListEqual(page_context['tags'], ['cool', 'love'])
@@ -236,7 +236,7 @@ class TestPyssm(unittest.TestCase):
         self.assertEqual(page.relative_path, "food/fruits/apple.md")
         self.assertEqual(page.slug, "apple")
         self.assertEqual(page.url, "/food/fruits/apple")
-        self.assertEqual(page.permalink, "http://www.pyssmsite.fr/food/fruits/apple")
+        self.assertEqual(page.permalink, "http://www.victorpy-demosite.com/food/fruits/apple")
         self.assertEqual(page.section_url, "/food/fruits")
         self.assertEqual(page.parent_section_url, "/food")
         self.assertEqual(page.direct_section_slug, "fruits")
@@ -244,22 +244,22 @@ class TestPyssm(unittest.TestCase):
         self.assertEqual(page_context['template'], "page.html")
         self.assertEqual(page_context['title'], "The apple")
         self.assertEqual(page_context['section_sections'], [
-            {'permalink': "http://www.pyssmsite.fr/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
-            {'permalink': "http://www.pyssmsite.fr/food/vegetables", 'url': "/food/vegetables", 'title': "Vegetables"},
+            {'permalink': "http://www.victorpy-demosite.com/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
+            {'permalink': "http://www.victorpy-demosite.com/food/vegetables", 'url': "/food/vegetables", 'title': "Vegetables"},
         ])
         self.assertEqual(page_context['section_pages'], [
-            {'permalink': "http://www.pyssmsite.fr/food/fruits/apple", 'url': "/food/fruits/apple", 'title': "The apple"},
-            {'permalink': "http://www.pyssmsite.fr/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
+            {'permalink': "http://www.victorpy-demosite.com/food/fruits/apple", 'url': "/food/fruits/apple", 'title': "The apple"},
+            {'permalink': "http://www.victorpy-demosite.com/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
         ])
         self.assertEqual(page_context['site']['root_sections'], [
-            {'permalink': "http://www.pyssmsite.fr/animals", 'url': "/animals", 'title': "Animals"},
-            {'permalink': "http://www.pyssmsite.fr/food", 'url': "/food", 'title': "Food"}
+            {'permalink': "http://www.victorpy-demosite.com/animals", 'url': "/animals", 'title': "Animals"},
+            {'permalink': "http://www.victorpy-demosite.com/food", 'url': "/food", 'title': "Food"}
         ])
         self.assertEqual(page_context['breadcrumb'], [
-            {'permalink': "http://www.pyssmsite.fr/", 'url': "/", 'title': "Home page"},
-            {'permalink': "http://www.pyssmsite.fr/food", 'url': "/food", 'title': "Food"},
-            {'permalink': "http://www.pyssmsite.fr/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
-            {'permalink': "http://www.pyssmsite.fr/food/fruits/apple", 'url': "/food/fruits/apple", 'title': "The apple"},
+            {'permalink': "http://www.victorpy-demosite.com/", 'url': "/", 'title': "Home page"},
+            {'permalink': "http://www.victorpy-demosite.com/food", 'url': "/food", 'title': "Food"},
+            {'permalink': "http://www.victorpy-demosite.com/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
+            {'permalink': "http://www.victorpy-demosite.com/food/fruits/apple", 'url': "/food/fruits/apple", 'title': "The apple"},
         ])
         self.assertListEqual(page_context['tags'], [])
 
@@ -270,18 +270,18 @@ class TestPyssm(unittest.TestCase):
         page_context = page.get_context()
 
         self.assertEqual(page_context['section_sections'], [
-            {'permalink': "http://www.pyssmsite.fr/animals", 'url': "/animals", 'title': "Animals"},
-            {'permalink': "http://www.pyssmsite.fr/food", 'url': "/food", 'title': "Food"},
+            {'permalink': "http://www.victorpy-demosite.com/animals", 'url': "/animals", 'title': "Animals"},
+            {'permalink': "http://www.victorpy-demosite.com/food", 'url': "/food", 'title': "Food"},
         ])
 
         self.assertEqual(page_context['sub_sections'], [
-            {'permalink': "http://www.pyssmsite.fr/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
-            {'permalink': "http://www.pyssmsite.fr/food/vegetables", 'url': "/food/vegetables", 'title': "Vegetables"}
+            {'permalink': "http://www.victorpy-demosite.com/food/fruits", 'url': "/food/fruits", 'title': "Fruits"},
+            {'permalink': "http://www.victorpy-demosite.com/food/vegetables", 'url': "/food/vegetables", 'title': "Vegetables"}
         ])
 
         self.assertEqual(page_context['breadcrumb'], [
-            {'permalink': "http://www.pyssmsite.fr/", 'url': "/", 'title': "Home page"},
-            {'permalink': "http://www.pyssmsite.fr/food", 'url': "/food", 'title': "Food"},
+            {'permalink': "http://www.victorpy-demosite.com/", 'url': "/", 'title': "Home page"},
+            {'permalink': "http://www.victorpy-demosite.com/food", 'url': "/food", 'title': "Food"},
         ])
         self.assertListEqual(page_context['tags'], [])
 
@@ -292,7 +292,7 @@ class TestPyssm(unittest.TestCase):
         page_context = page.get_context()
 
         self.assertEqual(page_context['breadcrumb'], [
-            {'permalink': "http://www.pyssmsite.fr/", 'url': "/", 'title': "Home page"},
+            {'permalink': "http://www.victorpy-demosite.com/", 'url': "/", 'title': "Home page"},
         ])
         self.assertListEqual(page_context['tags'], [])
 
@@ -306,15 +306,15 @@ class TestPyssm(unittest.TestCase):
         self.assertEqual(page.relative_path, "root-page.md")
         self.assertEqual(page.slug, "root-page")
         self.assertEqual(page.url, "/root-page")
-        self.assertEqual(page.permalink, "http://www.pyssmsite.fr/root-page")
+        self.assertEqual(page.permalink, "http://www.victorpy-demosite.com/root-page")
         self.assertEqual(page.section_url, "/")
         self.assertEqual(page.parent_section_url, None)
         self.assertEqual(page.direct_section_slug, "")
         self.assertEqual(page.dest_path, "../data/demo_site/public/root-page/index.html")
 
         self.assertEqual(page_context['breadcrumb'], [
-            {'permalink': "http://www.pyssmsite.fr/", 'url': "/", 'title': "Home page"},
-            {'permalink': "http://www.pyssmsite.fr/root-page", 'url': "/root-page", 'title': "Root page"},
+            {'permalink': "http://www.victorpy-demosite.com/", 'url': "/", 'title': "Home page"},
+            {'permalink': "http://www.victorpy-demosite.com/root-page", 'url': "/root-page", 'title': "Root page"},
         ])
 
         self.assertListEqual(page_context['tags'], ['cool'])

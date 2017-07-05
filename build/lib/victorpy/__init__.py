@@ -1,13 +1,10 @@
-from pkg_resources import get_distribution, DistributionNotFound
-import os.path
+__version__ = '0.1.2'
 
-try:
-    _dist = get_distribution('victorpy')
-    dist_loc = os.path.normcase(_dist.location)
-    here = os.path.normcase(__file__)
-    if not here.startswith(os.path.join(dist_loc, 'victorpy')):
-        raise DistributionNotFound
-except DistributionNotFound:
-    __version__ = 'Please install this project with setup.py'
-else:
-    __version__ = _dist.version
+# __date__ =
+
+"""
+__version__ = 0.1
+
+- Init
+
+"""
