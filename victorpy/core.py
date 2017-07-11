@@ -648,12 +648,10 @@ def main():
     parser.add_argument('-p', '--port', type=int, default=5000, help="The port number of live server")
     args = parser.parse_args()
 
-    params = {'base_dir': os.getcwd(), 'port': args.port}
-
     if args.action == 'build':
-        Site.build(**params)
+        Site.build(base_dir=os.getcwd())
     elif args.action == 'serve':
-        Site.serve(**params)
+        Site.serve(base_dir=os.getcwd(), port=args.port)
 
 if __name__ == "__main__":
     main()
