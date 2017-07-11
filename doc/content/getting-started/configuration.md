@@ -18,7 +18,7 @@ Bootstrapping a {% prog_name %} site is very easy:
 
 All your static site configuration is held by the `config.yaml` file.
 
-{% alert type="warning" title="Yaml format" %}
+{% alert type="info" title="Yaml format" %}
     The config file is written using Yaml formating language. See [Yaml official doc](http://yaml.org/) for further informations.
 {% endalert %}
 

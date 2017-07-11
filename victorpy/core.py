@@ -275,6 +275,7 @@ class Site(object):
         }
 
         self.params = {
+            'base_url': "",
             'build_dir_name': "public",
             'templates_dir_name': "templates",
             'content_dir_name': "content",
@@ -522,6 +523,7 @@ class Site(object):
             self.context = self.params
             self.context['build_date'] = self.build_date
             self.context['render_id'] = self.render_id
+            self.context['engine'] = self.engine
             self.context['root_sections'] = sorted([p.mini_context for p in self.pages_list if p.url != "/" and p.slug == "index" and p.parent_section_url == None], key=itemgetter('position'))
             self.context['pages'] = [p.mini_context for p in self.pages_list if p.page_type == PageType.CONTENT]
             self.context['tags'] = OrderedDict({tag: {'title': tag_data['title'], 'permalink': tag_data['permalink'], 'url': tag_data['url'], 'pages': [{'title': p.params['title'], 'permalink': p.permalink, 'url': p.url} for p in tag_data['pages']]} for tag, tag_data in self.tags.items()})
@@ -557,28 +559,15 @@ class Site(object):
         self._write_files()
         self.run_hooks_after_build()
 
-
-def main():
-
-    logging.info("VictorPy " + __version__)
-
-    parser = argparse.ArgumentParser(description="A simple yet powerful static site generator")
-    parser.add_argument('serve', nargs='?', default=None, help="Launch live server on local directory")
-    parser.add_argument('build', nargs='?', default=None, help="Generate site files in build directory")
-    args = parser.parse_args()
-
-    if len(sys.argv) == 1:
-        action = 'serve'
-    else:
-        action = sys.argv[1]
-
-
-    if action == 'build':
-        site = Site(base_dir=os.getcwd())
+    @classmethod
+    def build(cls, base_dir):
+        site = Site(base_dir=base_dir)
         site.build()
 
-    elif action == 'serve':
-        site = Site(base_dir=os.getcwd())
+    @classmethod
+    def serve(cls, base_dir, port: int):
+        site = Site(base_dir=base_dir)
+        site.params['port'] = port
         site.render()
 
         app = Flask(__name__, static_folder=os.path.join(os.getcwd(), "static"))
@@ -646,6 +635,25 @@ def main():
                         extra_files.append(filename)
         app.run(extra_files=extra_files, port=site.params['port'])
 
+
+
+def main():
+    logging.info("VictorPy " + __version__)
+
+    if not 'serve' in sys.argv and not 'build' in sys.argv:
+        sys.argv.append('serve')
+
+    parser = argparse.ArgumentParser(description="A simple yet powerful static site generator")
+    parser.add_argument('action', action='store', type=str, choices=('serve', 'build'), help="The action to execute.")
+    parser.add_argument('-p', '--port', type=int, default=5000, help="The port number of live server")
+    args = parser.parse_args()
+
+    params = {'base_dir': os.getcwd(), 'port': args.port}
+
+    if args.action == 'build':
+        Site.build(**params)
+    elif args.action == 'serve':
+        Site.serve(**params)
 
 if __name__ == "__main__":
     main()

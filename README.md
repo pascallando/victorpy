@@ -2,7 +2,7 @@ VictorPy is a **simple yet powerful static site generator**.
 
 ## Installing
 
-VistorPy is available on [PyPI](https://pypi.python.org/pypi/victorpy), so you can pip(3) install it:
+VictorPy is available on [PyPI](https://pypi.python.org/pypi/victorpy), so you can pip(3) install it:
 
 ```bash
 $ pip3 install victorpy

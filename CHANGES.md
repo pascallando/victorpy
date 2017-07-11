@@ -3,6 +3,14 @@ VictorPy Changelog
 
 Here you can see the full list of changes between each VictorPy release.
 
+Version 0.1.3
+-------------
+
+- Enable `-p` (or `--port`) command line option for live server.
+- Add meta `generator` on default base template.
+- Fix `KeyError: 'base_url'` when undefined in `config.yaml`.
+- Fix a typo on `README.md`.
+
 Version 0.1.22
 --------------
 

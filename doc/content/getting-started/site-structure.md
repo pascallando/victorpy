@@ -44,6 +44,6 @@ my-site/
 
 Once created this folder, you could launch a test server to see your site content by typing `victorpy` from your site directory (for example: `my-site`), and then open [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-{% alert type="warning" title="Command line" %}
+{% alert type="info" title="Command line" %}
 More details about how to use the command line tools are provided in the [Command line](/build-process/command-line/) section.
 {% endalert %}

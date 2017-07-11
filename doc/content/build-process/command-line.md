@@ -26,20 +26,24 @@ In a terminal, make sure you are in your project root folder, and then type:
 $ victorpy serve
 ```
 
-{% alert type="warning" title="Shortcut" %}
+{% alert type="info" title="Shortcut" %}
 You can also just type ```victorpy``` to start the live server.
 {% endalert %}
 
 {% prog_name %} should start quickly, build your site in memory, serve it and display a few messages on the console:
 
 ```bash
-INFO VictorPy v0.1
+INFO VictorPy
 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
 By now, you site is live locally!
 
 Open a browser at http://127.0.0.1:5000/ and see what you get…
+
+{% alert type="info" title="Port" %}
+Optionnaly, you can specify a port number with the `-p` (or `--port`) option.
+{% endalert %}
 
 ## Building your site
 
