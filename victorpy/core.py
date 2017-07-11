@@ -560,12 +560,12 @@ class Site(object):
         self.run_hooks_after_build()
 
     @classmethod
-    def build(cls, base_dir):
+    def build_cmd(cls, base_dir):
         site = Site(base_dir=base_dir)
         site.build()
 
     @classmethod
-    def serve(cls, base_dir, port: int):
+    def serve_cmd(cls, base_dir, port: int):
         site = Site(base_dir=base_dir)
         site.params['port'] = port
         site.render()
@@ -636,7 +636,6 @@ class Site(object):
         app.run(extra_files=extra_files, port=site.params['port'])
 
 
-
 def main():
     logging.info("VictorPy " + __version__)
 
@@ -649,9 +648,9 @@ def main():
     args = parser.parse_args()
 
     if args.action == 'build':
-        Site.build(base_dir=os.getcwd())
+        Site.build_cmd(base_dir=os.getcwd())
     elif args.action == 'serve':
-        Site.serve(base_dir=os.getcwd(), port=args.port)
+        Site.serve_cmd(base_dir=os.getcwd(), port=args.port)
 
 if __name__ == "__main__":
     main()
